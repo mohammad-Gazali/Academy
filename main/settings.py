@@ -129,3 +129,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_URL = 'http://127.0.0.1:8000'
+
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/accounts/login'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        # 'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
+    },
+}

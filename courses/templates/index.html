@@ -1,2 +1,26 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
+{% block title %}
+    Gazali Academy
+{% endblock title %}
+
+
+{% block content %}
+    <h3 class="text-center text-info my-5 bg-dark bg-gradient container py-2 px-4 shadow" style="width: fit-content; border-radius: 25px">
+        {% trans "Check Out Our Brand Courses" %} <i class="bi bi-emoji-sunglasses-fill text-warning"></i>
+    </h3>
+    <div class="container fcstr flex-wrap my-5 gap-5">
+        {% for course in courses %}
+            <div class="card text-white shadow" style="width: 18rem; border: none; background: var(--cards-color)">
+                <img src="{{ course.thumbnail_image.url }}" class="card-img-top" alt="{{ course.name }}">
+                <div class="card-body h-100 d-flex flex-column">
+                    <h5 class="card-title">{{ course.name }}</h5>
+                    <p class="card-text">{{ course.short_description }}.</p>
+                    <a href="{% url 'course_details' course.id %}" class="btn btn-primary bg-gradient mt-auto">{% trans "Details" %} <i class="bi bi-info-circle"></i></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+      
+{% endblock content %}

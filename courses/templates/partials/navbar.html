@@ -1,11 +1,8 @@
 {% load i18n %}
 
-
-{% comment %} todo: use .fc class {% endcomment %}
-
-<nav class="navbar navbar-expand-md bg-light">
+<nav class="navbar navbar-dark navbar-expand-md bg-dark">
 	<div class="container-fluid">
-		<a class="navbar-brand h6" href="#">Gazali Academy</a>
+		<a class="navbar-brand h6" href="{% url 'home' %}">Gazali Academy</a>
 		<button
 			class="navbar-toggler"
 			type="button"
@@ -19,29 +16,76 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                    >
-                        {% trans "Language" %}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">Home</a>
+					<a class="nav-link active" aria-current="page" href="{% url 'home' %}"
+						>{% trans "Home" %}</a
+					>
+				</li>
+				<li class="nav-item dropdown">
+					<a
+						class="nav-link dropdown-toggle"
+						href="#"
+						role="button"
+						data-bs-toggle="dropdown"
+						aria-expanded="false"
+					>
+						{% trans "Language" %}
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+						<li><a class="dropdown-item" href="#">العربية</a></li>
+						<li><a class="dropdown-item" href="#">English</a></li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a
+						class="nav-link dropdown-toggle"
+						href="#"
+						role="button"
+						data-bs-toggle="dropdown"
+						aria-expanded="false"
+					>
+						{% trans "Blog" %}
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+						<li>
+							<a class="dropdown-item" href="{% url 'blog_list' %}">
+								{% trans "All Articles" %}
+							</a>
+						</li>
+						{% if user.is_authenticated %}
+							<li><hr class="dropdown-divider" /></li>
+							<li>
+								<a class="dropdown-item" href="{% url 'blog_personal' %}">
+									{% trans "My Articles" %}
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="{% url 'blog_create' %}">
+									{% trans "Create Article" %}
+								</a>
+							</li>
+						{% endif %}
+					</ul>
+				</li>
+				{% if user.is_authenticated %}
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
+				</li>
+				<li class="nav-item ms-md-4" style="width: fit-content">
+					<a class="fc gap-2 btn btn-outline-light" href="#"
+						>{% trans "Cart" %}<i class="bi bi-cart"></i
+					></a>
+				</li>
+				{% else %}
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
+					<a class="nav-link" href="{% url 'register' %}"
+						>{% trans "Register" %}</a
+					>
 				</li>
+				{% endif %}
 			</ul>
 		</div>
 	</div>

@@ -9,4 +9,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(models.Article)
 class ArticleAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['id', 'title', 'author', 'is_arabic', 'created_at', 'updated_at']
+    list_filter = ['is_arabic', 'author']

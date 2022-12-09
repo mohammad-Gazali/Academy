@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+{% block title %}
+    {% trans "Create Blog" %}
+{% endblock title %}
+
+
+{% block content %}
+
+    <div class="row col-md-8 container mx-auto my-5">
+        <form class="container bg-dark text-white form-control p-3" style="border: none;" action="{% url 'blog_create' %}" method="POST">
+            {% csrf_token %}
+            {{ form.media }}
+            {% include 'common/form.html' with form=form %}
+            <button class="btn btn-success bg-gradient" type="submit">
+                {% trans "Create" %}
+            </button>
+        </form>
+    </div>
+
+{% endblock content %}

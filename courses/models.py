@@ -11,6 +11,7 @@ class Course(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_('updated at'))
     thumbnail_image = models.ImageField(verbose_name=_('thumbnail image'))
     price = models.FloatField(verbose_name=_('price'))
+    users = models.JSONField(default=dict)
 
 
     def __str__(self):

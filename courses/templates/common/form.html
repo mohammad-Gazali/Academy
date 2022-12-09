@@ -1,0 +1,29 @@
+<ul>
+    {% for error in form.non_field_errors %}
+        <li class="ps-1 py-2 list-group-item list-group-item-danger"> {{ error|escape }} </li>
+    {% endfor %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <li class="ps-1 py-2 list-group-item list-group-item-danger"> {{ error|escape }} </li>
+        {% endfor %}
+    {% endfor %}
+</ul>
+
+{% for field in form %}
+    {% if field == "body" %}
+        <div class="mb-5 mt-3  d-flex flex-column">
+            <label class="form-label block">{{ field.label }}</label>
+            {{ field }}
+        </div>
+    {% elif field.name == "is_arabic" %}
+        <div class="form-check my-5">
+            {{ field }}
+            <label for="id_is_arabic" style="cursor: pointer;" class="form-check-label fw-bold">{{ field.label }}</label>
+        </div>
+    {% else %}  
+        <div class="mb-3">
+            <label class="form-label"> {{ field.label }} </label>
+            {{ field }}
+        </div>
+    {% endif %}
+{% endfor %}

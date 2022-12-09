@@ -1,19 +1,86 @@
-*, *::after, *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg-color:      #262e40;
+    --cards-color:   #22212b;
+    --cards-color-2: #2d2579;
+    --bg-details:    #2828348f;
 }
 
-body, main {
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Cairo', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #22212b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #606065;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3f3f42;
+}
+
+body,
+main {
     overflow-x: hidden;
 }
 
+body {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background-color: var(--bg-color);
+}
+
+footer {
+    padding: 1rem;
+    height: 4rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+main {
+    padding-bottom: 4rem;
+}
 
 
+
+/** My Classes */
 
 .fc {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.fcstr {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.feven {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.fevstr {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
 }

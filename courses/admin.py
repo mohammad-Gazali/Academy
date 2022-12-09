@@ -9,4 +9,6 @@ class CourseAdmin(admin.ModelAdmin):
 
 @admin.register(models.Lesson)
 class LessonAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['title', 'course', 'created_at']
+    list_filter = ['course']
+    ordering = ['course']
