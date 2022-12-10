@@ -7,5 +7,46 @@
 
 
 {% block content %}
-    All Articles
+    <div class="container my-5 d-flex flex-column gap-3">
+        {% for article in articles %}
+            <div class="position-relative card text-white my-2" style="background-color: var(--cards-color)">
+                <div class="card-body">
+                    <div class="card-title mb-3 d-flex gap-3 align-items-start">
+                        <div class="badge fs-6 fc" style="background-color: var(--cards-color-2);">
+                            {{ forloop.counter }} 
+                        </div>
+                        <h5 class="rounded p-2">
+                            {{ article.title }}
+                        </h5>
+                    </div>
+                    <div>
+                        <span class="fw-bold">{% trans "Author" %}: &nbsp;&nbsp;&nbsp; </span> {{ article.author }}
+                    </div>
+                    <div>
+                        <span class="fw-bold">{% trans "Category" %}: &nbsp;&nbsp;&nbsp; </span> {{ article.category }}
+                    </div>
+                    <div>
+                        <span class="fw-bold">{% trans "Created At" %}: &nbsp;&nbsp;&nbsp; </span> {{ article.created_at|date:"Y/m/d, H:i:s" }}
+                    </div>
+                    <div class="mb-4">
+                        <span class="fw-bold">{% trans "Last Change At" %}: &nbsp;&nbsp;&nbsp; </span> {{ article.updated_at|date:"Y/m/d, H:i:s" }}
+                    </div>
+                    <div class="row container gap-2">
+                        <a href={% url 'blog_detail' article.id %} class="btn btn-outline-primary btn-sm" style="width: 150px">{% trans "View" %} <i class="bi bi-card-text"></i></a>
+                    </div>
+                </div>
+                <div class="badge fs-6 bg-secondary position-absolute top-0 end-0" style="width: 200px">
+                    {% if article.is_arabic %}
+                        {% trans "Arabic Article" %}
+                    {% else %}
+                        {% trans "English Article" %}
+                    {% endif %}
+                </div>
+            </div>
+        {% empty %}
+            <div class="fc fs-1 gap-3 mt-4 p-4 flex-wrap text-center text-white rounded" style="border: 2px solid white">
+                {% trans "There is no articles for display" %} <i class="bi bi-emoji-frown"></i>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

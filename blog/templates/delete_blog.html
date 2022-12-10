@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+{% block title %}
+    {% trans "Delete Article" %}
+{% endblock title %}
+
+{% block content %}
+    <div class="container fc text-center my-5 rounded bg-dark py-4 text-white col-md-6">
+        <form method="POST">
+            {% csrf_token %}
+            <p>
+                {% trans "Are You Sure About Deleting" %} {{ object.title }} ?
+            </p>
+            {{ form }}
+            <button class="btn btn-danger" type="submit">
+                {% trans "Delete" %}
+            </button>
+            <a href="javascript:history.back()" class="btn btn-secondary ms-3">
+                {% trans "Back" %}
+            </a>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {{ article.title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="row container">
+        <div class="position-relative border shadow shadow-lg rounded pt-5 pb-3 bg-light container col-md-6 my-5">
+            <div class="position-absolute badge top-0 end-0 mt-3 me-3 bg-dark">
+                {{ article.category }} Article
+            </div>
+            <div>
+                {{ article.body|safe }}
+            </div>
+            <div class="text-white rounded mb-2 p-2 bg-dark">
+                {% trans "Last Change At" %}: &nbsp;&nbsp;&nbsp; {{ article.updated_at|date:"Y/m/d, H:i:s" }}
+            </div>
+            <div class="text-white rounded p-2 bg-dark">
+                {% trans "Created At" %}: &nbsp;&nbsp;&nbsp; {{ article.updated_at|date:"Y/m/d, H:i:s" }}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

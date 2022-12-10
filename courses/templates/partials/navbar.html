@@ -69,12 +69,15 @@
 				</li>
 				{% if user.is_authenticated %}
 				<li class="nav-item">
+					<a class="nav-link" href="{% url 'logout' %}">{% trans "My Courses" %}</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
 				</li>
 				<li class="nav-item ms-md-4" style="width: fit-content">
-					<a class="fc gap-2 btn btn-outline-light" href="#"
-						>{% trans "Cart" %}<i class="bi bi-cart"></i
-					></a>
+					<a class="fc gap-2 btn btn-outline-light" href="#">
+						{% trans "Cart" %}<i class="bi bi-cart"></i>
+					</a>
 				</li>
 				{% else %}
 				<li class="nav-item">
