@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+{% block title %}
+    {% trans "My Courses" %}
+{% endblock title %}
+
+{% block content %}
+    <div class="container my-5 d-flex flex-column gap-5">
+        {% for course in courses %}
+            <div class="card p-3">
+                <div class="card-title fw-bold">
+                    {{ course.name }}
+                </div>
+                <p class="card-text">
+                    {{ course.short_description }}
+                </p>
+                <a class="btn btn-primary bg-gradient" href="{% url 'course_personal_display' course.id %}" style="width: fit-content">
+                    {% trans "Serve The Content" %}
+                </a>
+            </div>
+        {% empty %}
+            <div class="fs-1 d-flex flex-column gap-3 mt-4 p-4 flex-wrap text-center text-white rounded" style="border: 2px solid white">
+                <div class="fc gap-3 w-100">
+                    {% trans "There is no courses for display" %} <i class="bi bi-emoji-frown"></i>
+                </div>
+                <div class="fc w-100">
+                    {% trans "Get Your Owns By Buying Some Awesome Courses" %}    
+                </div>
+                <a href="{% url 'home' %}" class="mx-auto btn btn-success bg-gradient">See Our Courses</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

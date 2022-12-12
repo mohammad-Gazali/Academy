@@ -1,5 +1,6 @@
 from django.db import models
 from main import settings
+from django.conf.global_settings import AUTH_USER_MODEL
 from django.utils.translation import gettext as _
 
 
@@ -49,6 +50,7 @@ class Comment(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_('updated at'))
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, verbose_name=_('lesson'))
     related_comment = models.IntegerField(verbose_name=_('related comment'), null=True, blank=True)
+    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_('user'), null=True, blank=True)
 
 
     def __str__(self):

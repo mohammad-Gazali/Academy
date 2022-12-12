@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n custom_filters %}
+
+{% block title %}
+    {{ course.name }}
+{% endblock title %}
+
+{% block content %}
+    <div class="d-flex flex-column gap-3 py-3 container my-5 rounded" style="background-color: var(--cards-color)">
+        {% for lesson in course.lesson_set.all %}
+            <a href="{% url 'course_personal_video' lesson.id %}" style="text-decoration: none; width: fit-content">
+                {{ forloop.counter }}- {{ lesson.title|course_title }}
+            </a>
+        {% endfor %}
+    </div>
+{% endblock content %}

@@ -17,7 +17,8 @@
                 <div class="card-body h-100 d-flex flex-column">
                     <h5 class="card-title">{{ course.name }}</h5>
                     <p class="card-text">{{ course.short_description }}.</p>
-                    <a href="{% url 'course_details' course.id %}" class="btn btn-primary bg-gradient mt-auto">{% trans "Details" %} <i class="bi bi-info-circle"></i></a>
+                    <a href="{% url 'course_details' course.id %}" class="btn btn-primary bg-gradient mt-auto mb-2">{% trans "Details" %} <i class="bi bi-info-circle"></i></a>
+                    <a href="{% url 'course_details' course.id %}" class="btn btn-dark bg-gradient">{% trans "Add To Cart" %} <i class="bi bi-bag-plus"></i></a>
                 </div>
             </div>
         {% endfor %}

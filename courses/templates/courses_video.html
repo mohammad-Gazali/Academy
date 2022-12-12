@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}
+    {{ lesson.title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="container my-5">
+        <h3 class="mb-4 text-white">{{ lesson.title }}</h3>
+        <video class="w-100 rounded" controls>
+            <source src="{{ lesson.video_url }}" type="video/mp4">
+        </video>
+        <div class="d-flex flex-column-reverse gap-5 my-5 container bg-dark py-3 rounded">
+            {% for comment in lesson.comment_set.all %}
+                <div class="card px-2 py-3" style="width: 80%">
+                    <p class="card-text text-muted fw-bold">
+                        {{ comment.user }}
+                    </p>
+                    <p class="card-text">
+                        {{ comment.content }}
+                    </p>
+                    <span class="me-auto text-muted small">
+                        <i class="bi bi-clock"></i>
+                        <time datetime="{{ project.created_at }}">
+                            {{ comment.created_at|naturaltime }}
+                        </time>
+                    </span>
+                </div>
+            {% endfor %}
+        </div>
+        <form class="form-control py-3 bg-dark text-white d-flex flex-column gap-2" style="border: none" action="{% url 'course_personal_video' lesson.id %}" method="POST">
+            {% csrf_token %}
+            <h3 class="mb-4">
+                {% trans "Add a Comment to the Video" %}
+            </h3>
+            {{ form }}
+            <button class="btn btn-primary bg-gradient mt-3" style="width: fit-content" type="submit">
+                {% trans "Create" %}
+            </button>
+        </form>
+    </div>
+{% endblock content %}
