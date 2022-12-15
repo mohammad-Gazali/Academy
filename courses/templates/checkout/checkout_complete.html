@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Checkout Complete" %}
+{% endblock title %}
+
+{% block content %}
+    <div class="container flex-column fc gap-5 my-5 text-white fs-2">
+        <div class="fc gap-2">
+            {% trans "Your Checkout Has Been Completed" %} <i class="text-success fs-1 bi bi-check2-circle"></i>
+        </div>
+        <a class="btn btn-primary" href="{% url 'home' %}">{% trans "Home Page" %}</a>
+    </div>
+{% endblock content %}

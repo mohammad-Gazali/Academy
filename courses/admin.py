@@ -19,3 +19,8 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ['id', 'lesson', 'created_at']
     list_filter = ['lesson']
     ordering = ['lesson']
+
+
+@admin.register(models.Cart)
+class CartAdmin(admin.ModelAdmin):
+    pass

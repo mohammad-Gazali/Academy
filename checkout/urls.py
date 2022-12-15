@@ -1,6 +1,7 @@
 from django.urls import path
-from . import views
+from courses.views import checkout, checkout_complete
 
 urlpatterns = [
-    
+    path('', checkout, name="checkout"),
+    path('complete', checkout_complete, name="checkout_complete")
 ]

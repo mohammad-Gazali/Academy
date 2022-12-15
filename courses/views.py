@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.http import HttpRequest, HttpResponseForbidden, HttpResponseNotAllowed
+from django.http import HttpRequest, HttpResponseForbidden, HttpResponseNotAllowed, JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.utils.translation import gettext as _
+from django.shortcuts import render, redirect
 from .my_functions import get_valid_courses
-from .models import Course, Lesson, Comment
+from .models import Course, Lesson, Comment, Cart
 from .forms import CommentCreateForm
 
 
@@ -76,3 +76,76 @@ def delete_comment(request: HttpRequest, cid):
             return HttpResponseNotAllowed("<h1>405</h1><h1>Not Allowed Method</h1>")
     else:
         return HttpResponseForbidden("<h1>403</h1><h1>Forbidden</h1>")
+
+
+@login_required
+def cart_update(request: HttpRequest, cid):
+    if request.method == "GET":
+        if not request.session.session_key:
+            request.session.create()
+        session_id = request.session.session_key
+
+        cart_model = Cart.objects.filter(session_id=session_id).last()
+
+        if cart_model is None:
+            cart_model = Cart.objects.create(
+                session_id=session_id,
+                items=[cid]
+            )
+        elif cid not in cart_model.items:
+            cart_model.items.append(cid)
+            cart_model.save()
+
+        return JsonResponse({
+            "title": _("Success"),
+            "message": _("The Course Has Been Added Successfully to the Cart"),
+            "items_count": len(cart_model.items),
+            "button": _("Continue")
+        })
+    else:
+        return HttpResponseNotAllowed("<h1>405</h1><h1>Not Allowed Method</h1>")
+
+
+@login_required
+def delete_from_cart(request: HttpRequest, cid):
+    if request.method == "GET":
+        session_id = request.session.session_key
+        if not session_id:
+            return JsonResponse({})
+        cart = Cart.objects.filter(session_id=session_id).last()
+
+        if cid in cart.items:
+            cart.items.remove(cid)
+            cart.save()
+        
+        return JsonResponse({})
+    else:
+        return HttpResponseNotAllowed("<h1>405</h1><h1>Not Allowed Method</h1>")
+
+
+@login_required
+def reset_cart(request: HttpRequest):
+    if request.method == "GET":
+        session_id = request.session.session_key
+        if not session_id:
+            return JsonResponse({})
+        cart = Cart.objects.filter(session_id=session_id).last()
+        cart.delete()
+        return JsonResponse({})
+    else:
+        return HttpResponseNotAllowed("<h1>405</h1><h1>Not Allowed Method</h1>")
+
+
+@login_required
+def cart(request: HttpRequest):
+    return render(request, "cart.html")
+
+
+@login_required
+def checkout(request: HttpRequest):
+    return render(request, "checkout/checkout.html")
+
+
+@login_required
+def checkout_complete(request: HttpRequest):
+    return render(request, "checkout/checkout_complete.html")

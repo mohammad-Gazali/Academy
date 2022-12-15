@@ -1,7 +1,8 @@
 from django.db import models
-from main import settings
+from django.contrib.sessions.models import Session
 from django.conf.global_settings import AUTH_USER_MODEL
 from django.utils.translation import gettext as _
+from main import settings
 
 
 class Course(models.Model):
@@ -61,5 +62,13 @@ class Comment(models.Model):
         verbose_name = _('comment')
         verbose_name_plural = _('comments')
 
+
+class Cart(models.Model):
+    items = models.JSONField(default=list)
+    session = models.ForeignKey(Session, on_delete=models.CASCADE, verbose_name=_("session"))
+
+    class META:
+        verbose_name = _('cart')
+        verbose_name_plural = _('carts')
 
 

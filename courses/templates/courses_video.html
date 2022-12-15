@@ -22,9 +22,10 @@
                             {{ comment.content }}
                         </p>
                         {% if comment.related_comment %}
-                            <a href="#comment-{{ comment.related_comment_id }}" class="related-comment card-text p-2 rounded" style="background-color: var(--bs-gray-400); text-decoration: none">
-                                {{ comment.related_comment }}
-                            </a>
+                        <a href="#comment-{{ comment.related_comment_id }}" class="card-text p-2 rounded related-comment" style="background-color: var(--bs-gray-400); ; text-decoration: none">
+                            <p class="fw-bold text-muted">{% trans "Reply For:" %}</p>
+                            <p class="text-black">{{ comment.related_comment }}</p>
+                        </a>
                         {% endif %}
                         <div class="d-flex flex-wrap justify-content-end container gap-3 position-absolute end-0 me-1" style="width: 70%">
                             <form action="{% url 'course_personal_comment_delete' comment.id %}" method="post">
