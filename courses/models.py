@@ -49,7 +49,8 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created at'))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_('updated at'))
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, verbose_name=_('lesson'))
-    related_comment = models.IntegerField(verbose_name=_('related comment'), null=True, blank=True)
+    related_comment_id = models.IntegerField(verbose_name=_('related comment id'), null=True, blank=True)
+    related_comment = models.TextField(verbose_name=_('related comment'), null=True, blank=True)
     user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_('user'), null=True, blank=True)
 
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.http import HttpRequest, HttpResponseForbidden
+from django.http import HttpRequest, HttpResponseForbidden, HttpResponseNotAllowed
 from django.contrib.auth.decorators import login_required
 from .my_functions import get_valid_courses
 from .models import Course, Lesson, Comment
@@ -43,11 +43,17 @@ def personal_course_video(request: HttpRequest, lid):
             if form.is_valid():
                 content = form.cleaned_data["content"]
                 user = request.user
-                print(content)
+                related_comment_id = None
+                related_comment = None
+                if request.POST.get('comment-id') != '':
+                    related_comment_id = int(request.POST.get('comment-id'))
+                    related_comment = Comment.objects.get(pk=related_comment_id).content
                 Comment.objects.create(
                     content=content, 
                     lesson=lesson,
-                    user=user
+                    user=user,
+                    related_comment_id=related_comment_id,
+                    related_comment=related_comment,
                 )
                 return redirect(f'/personal/video/{lesson.id}')
         else:
@@ -57,3 +63,16 @@ def personal_course_video(request: HttpRequest, lid):
         return HttpResponseForbidden("<h1>403</h1><h1>Forbidden</h1>")
 
 
+@login_required
+def delete_comment(request: HttpRequest, cid):
+    valid_courses = get_valid_courses(request.user)
+    comment = Comment.objects.get(pk=cid)
+    course = comment.lesson.course
+    if course in valid_courses:
+        if request.method == "POST":
+            comment.delete()
+            return redirect(f'/personal/video/{comment.lesson.id}')
+        else:
+            return HttpResponseNotAllowed("<h1>405</h1><h1>Not Allowed Method</h1>")
+    else:
+        return HttpResponseForbidden("<h1>403</h1><h1>Forbidden</h1>")

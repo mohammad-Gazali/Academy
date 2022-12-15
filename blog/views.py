@@ -9,7 +9,7 @@ from .forms import ArticleForm
 
 
 def list_blog(request: HttpRequest):
-    articles = Article.objects.all()
+    articles = Article.objects.all().order_by("-created_at")
     return render(request, 'main_blog.html', {"articles": articles})
 
 

@@ -57,6 +57,14 @@ main {
     padding-bottom: 4rem;
 }
 
+.related-comment {
+    transition: .2s ease;
+}
+
+.related-comment:hover {
+    background-color: var(--bs-gray-500) !important;
+}
+
 
 
 /** My Classes */

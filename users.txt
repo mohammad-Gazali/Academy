@@ -1,0 +1,7 @@
+# super user
+1-  username: admin
+    password: admin
+
+
+2-  username: second
+    password: iamtestuser
