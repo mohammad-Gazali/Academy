@@ -1,0 +1,312 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-17 20:19+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+#: .\courses\apps.py:8
+msgid "Courses"
+msgstr "الدورات"
+
+#: .\courses\forms.py:14
+msgid "Content"
+msgstr "المحتوى"
+
+#: .\courses\models.py:11
+msgid "name"
+msgstr "الاسم"
+
+#: .\courses\models.py:12
+msgid "short description"
+msgstr "وصف قصير"
+
+#: .\courses\models.py:13
+msgid "description"
+msgstr "وصف"
+
+#: .\courses\models.py:14 .\courses\models.py:31 .\courses\models.py:52
+#: .\courses\models.py:81
+msgid "created at"
+msgstr "تاريخ الإنشاء"
+
+#: .\courses\models.py:15 .\courses\models.py:32 .\courses\models.py:53
+msgid "updated at"
+msgstr "تاريخ آخر تعديل"
+
+#: .\courses\models.py:16
+msgid "thumbnail image"
+msgstr "صورة مصغرة"
+
+#: .\courses\models.py:17 .\courses\models.py:80
+msgid "price"
+msgstr "السعر"
+
+#: .\courses\models.py:25 .\courses\models.py:34 .\courses\models.py:79
+msgid "course"
+msgstr "دورة"
+
+#: .\courses\models.py:26
+msgid "courses"
+msgstr "دورات"
+
+#: .\courses\models.py:30
+msgid "title"
+msgstr "العنوان"
+
+#: .\courses\models.py:33
+msgid "video"
+msgstr "مقطع الفيديو"
+
+#: .\courses\models.py:46 .\courses\models.py:54
+msgid "lesson"
+msgstr "درس"
+
+#: .\courses\models.py:47
+msgid "lessons"
+msgstr "دروس"
+
+#: .\courses\models.py:51
+msgid "content"
+msgstr "المحتوى"
+
+#: .\courses\models.py:55
+msgid "related comment id"
+msgstr "معرف التعليق المرتبط"
+
+#: .\courses\models.py:56
+msgid "related comment"
+msgstr "التعلق المرتبط"
+
+#: .\courses\models.py:57
+msgid "user"
+msgstr "المستخدم"
+
+#: .\courses\models.py:64
+msgid "comment"
+msgstr "تعليق"
+
+#: .\courses\models.py:65
+msgid "comments"
+msgstr "تعليقات"
+
+#: .\courses\models.py:70
+msgid "session"
+msgstr "session"
+
+#: .\courses\models.py:73
+msgid "cart"
+msgstr "سلة المشتريات"
+
+#: .\courses\models.py:74
+msgid "carts"
+msgstr "سلات المشتريات"
+
+#: .\courses\models.py:78
+msgid "transaction"
+msgstr "الصفقة"
+
+#: .\courses\templates\cart.html:5 .\courses\templates\partials\navbar.html:79
+msgid "Cart"
+msgstr "سلة المشتريات"
+
+#: .\courses\templates\cart.html:12
+msgid "Delete All Items"
+msgstr "حذف كل العناصر"
+
+#: .\courses\templates\cart.html:30 .\courses\templates\courses_details.html:23
+msgid "Price"
+msgstr "السعر"
+
+#: .\courses\templates\cart.html:41
+msgid "There is no Products in the Cart, Continue to the Home Page"
+msgstr "ليس هناك منتجات في سلة المشتريات, تابع للصفحة الرئيسية"
+
+#: .\courses\templates\cart.html:42
+#: .\courses\templates\checkout\checkout_complete.html:13
+msgid "Home Page"
+msgstr "الصفحة الرئيسية"
+
+#: .\courses\templates\cart.html:48
+msgid "Total Price"
+msgstr "السعر الكلي"
+
+#: .\courses\templates\cart.html:51
+msgid "Continue For Checkout"
+msgstr "المتابعة من أجل إكمال الدفع"
+
+#: .\courses\templates\checkout\checkout.html:5
+msgid "Checkout"
+msgstr "الدفع"
+
+#: .\courses\templates\checkout\checkout.html:14
+msgid "Amount to pay"
+msgstr "المقدار الواجب دفعه"
+
+#: .\courses\templates\checkout\checkout.html:21
+msgid "Your information"
+msgstr "معلوماتك الشخصية"
+
+#: .\courses\templates\checkout\checkout.html:31
+msgid "First Name"
+msgstr "الاسم"
+
+#: .\courses\templates\checkout\checkout.html:45
+msgid "Last Name"
+msgstr "الكنية"
+
+#: .\courses\templates\checkout\checkout.html:59
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: .\courses\templates\checkout\checkout.html:73
+msgid "Pay By Credit Card"
+msgstr "ادفع بالبطاقة الائتمانية"
+
+#: .\courses\templates\checkout\checkout.html:79
+msgid "Credit Card"
+msgstr "البطاقة الائتمانية"
+
+#: .\courses\templates\checkout\checkout.html:92
+msgid "Pay Now"
+msgstr "ادفع الآن"
+
+#: .\courses\templates\checkout\checkout_complete.html:5
+msgid "Checkout Complete"
+msgstr "نجاح عملية الدفع"
+
+#: .\courses\templates\checkout\checkout_complete.html:11
+msgid "Your Checkout Has Been Completed"
+msgstr "عملية الدفع خاصتك تمت بنجاح"
+
+#: .\courses\templates\courses_details.html:6
+msgid "Course Details"
+msgstr "تفاصيل الدورة"
+
+#: .\courses\templates\courses_details.html:30
+#: .\courses\templates\index.html:21
+msgid "Add To Cart"
+msgstr "إضافة إلى سلة المشتريات"
+
+#: .\courses\templates\courses_personal.html:6
+#: .\courses\templates\partials\navbar.html:72
+msgid "My Courses"
+msgstr "دوراتي"
+
+#: .\courses\templates\courses_personal.html:20
+msgid "Serve The Content"
+msgstr "تصفح المحتوى"
+
+#: .\courses\templates\courses_personal.html:26
+msgid "There is no courses for display"
+msgstr "ليس هناك دورات لعرضها"
+
+#: .\courses\templates\courses_personal.html:29
+msgid "Get Your Owns By Buying Some Awesome Courses"
+msgstr "احصل على بعضها بشراء الدورات المدهشة"
+
+#: .\courses\templates\courses_video.html:19
+msgid "You"
+msgstr "أنت"
+
+#: .\courses\templates\courses_video.html:26
+#: .\courses\templates\courses_video.html:55
+msgid "Reply For:"
+msgstr "رد ل:"
+
+#: .\courses\templates\courses_video.html:34
+msgid "Delete"
+msgstr "حذف"
+
+#: .\courses\templates\courses_video.html:61
+msgid "Reply"
+msgstr "رد"
+
+#: .\courses\templates\courses_video.html:74
+msgid "There is no comments"
+msgstr "لا يوجد تعليقات"
+
+#: .\courses\templates\courses_video.html:81
+msgid "Add a Comment to the Video"
+msgstr "أضف تعليقاً للفيديو"
+
+#: .\courses\templates\courses_video.html:85
+msgid "Related Comment"
+msgstr "التعليق المتعلق به"
+
+#: .\courses\templates\courses_video.html:91
+msgid "Create"
+msgstr "إنشاء"
+
+#: .\courses\templates\index.html:11
+msgid "Check Out Our Trend Courses"
+msgstr "شاهد دوراتنا العصرية"
+
+#: .\courses\templates\index.html:20
+msgid "Details"
+msgstr "التفاصيل"
+
+#: .\courses\templates\partials\footer.html:5
+msgid "© 2022 Gazali. All rights reserved"
+msgstr "جميع الحقوق محفوظة. غزالي ©"
+
+#: .\courses\templates\partials\navbar.html:21
+msgid "Home"
+msgstr "الصفحة الرئيسية"
+
+#: .\courses\templates\partials\navbar.html:32
+msgid "Language"
+msgstr "اللغة"
+
+#: .\courses\templates\partials\navbar.html:47
+msgid "Blog"
+msgstr "المدونة"
+
+#: .\courses\templates\partials\navbar.html:52
+msgid "All Articles"
+msgstr "كل المقالات"
+
+#: .\courses\templates\partials\navbar.html:59
+msgid "My Articles"
+msgstr "مقالاتي"
+
+#: .\courses\templates\partials\navbar.html:64
+msgid "Create Article"
+msgstr "إنشاء مقالة"
+
+#: .\courses\templates\partials\navbar.html:75
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\courses\templates\partials\navbar.html:84
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: .\courses\templates\partials\navbar.html:88
+msgid "Register"
+msgstr "إنشاء حساب"
+
+#: .\courses\views.py:104
+msgid "Success"
+msgstr "نجاح"
+
+#: .\courses\views.py:105
+msgid "The Course Has Been Added Successfully to the Cart"
+msgstr "تمت إضافة الدورة إلى سلة المشتريات بنجاح"
+
+#: .\courses\views.py:107
+msgid "Continue"
+msgstr "تم"

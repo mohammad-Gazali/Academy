@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-17 20:19+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+#: .\checkout\apps.py:8
+msgid "Checkout"
+msgstr "الدفع"
+
+#: .\checkout\forms.py:6
+msgid "first name"
+msgstr "الاسم"
+
+#: .\checkout\forms.py:7
+msgid "last name"
+msgstr "الكنية"
+
+#: .\checkout\forms.py:8
+msgid "email"
+msgstr "البريد اللإلكتروني"
+
+#: .\checkout\models.py:6
+msgid "Pending"
+msgstr "قيد المعالجة"
+
+#: .\checkout\models.py:7
+msgid "Completed"
+msgstr "مكتمل"
+
+#: .\checkout\models.py:12
+msgid "amount"
+msgstr "الثمن"
+
+#: .\checkout\models.py:13
+msgid "items"
+msgstr "المشتريات"
+
+#: .\checkout\models.py:14
+msgid "customer"
+msgstr "الزبون"
+
+#: .\checkout\models.py:15
+msgid "status"
+msgstr "الحالة"
+
+#: .\checkout\models.py:16
+msgid "created at"
+msgstr "تاريخ الإنشاء"
+
+#: .\checkout\models.py:17
+msgid "updated at"
+msgstr "تاريخ آخر تعديل"
+
+#: .\checkout\models.py:30
+msgid "transaction"
+msgstr "صفقة"
+
+#: .\checkout\models.py:31
+msgid "transactions"
+msgstr "صفقات"
+
+#: .\checkout\views.py:15
+msgid "en"
+msgstr "ar"
+
+#: .\checkout\views.py:24
+msgid "Please Enter Valid Information"
+msgstr "الرجاء إدخال معلومات صالحة"

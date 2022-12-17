@@ -9,10 +9,6 @@ from .forms import CommentCreateForm
 
 def index(request: HttpRequest):
     courses = Course.objects.all()
-    print('11111111111111111111111111111111111111')
-    print(request.user.id)
-    print(type(request.user.id))
-    print('11111111111111111111111111111111111111')
     return render(request, 'index.html', {"courses": courses})
 
 
