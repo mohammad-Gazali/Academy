@@ -11,7 +11,7 @@ class Category(models.Model):
         return self.name
 
 
-    class META:
+    class Meta:
         verbose_name = _('category')
         verbose_name_plural = _('categories')
 
@@ -34,6 +34,6 @@ class Article(models.Model):
         return self.author.username
 
 
-    class META:
+    class Meta:
         verbose_name = _('article')
         verbose_name_plural = _('articles')

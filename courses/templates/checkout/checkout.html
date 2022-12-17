@@ -1,10 +1,101 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n custom_filters %}
 
 {% block title %}
     {% trans "Checkout" %}
 {% endblock title %}
 
 {% block content %}
-    checkout
+  <div class="container my-5">
+    <div class="row bd-highlight">
+      <div class="col-md-12">
+        <h4 class="my-3 text-center">
+          <div class="alert bg-dark text-white py-3">
+            <h3 class="text-center">{% trans "Amount to pay" %}</h3>
+            <h3 class="text-center">{{ cart_total|currency }}</h3>
+          </div>
+        </h4>
+      </div>
+      <div class="col-12">
+        <h4 class="mx-auto mt-5 bg-dark bg-gradient text-white p-2 rounded" style="width: fit-content"> 
+            {% trans "Your information" %} 
+        </h4>
+        <div class="card">
+          <div class="card-body">
+            <form id="form-user-info">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="firstNameInput" class="form-label"
+                      >{% trans "First Name" %}</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="firstNameInput"
+                      name="first_name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="lastNameInput" class="form-label"
+                      >{% trans "Last Name" %}</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lastNameInput"
+                      name="last_name"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="emailInput" class="form-label"
+                  >{% trans "Email" %}</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailInput"
+                  name="email"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+        <h4 class="mx-auto mt-5 bg-dark bg-gradient text-white p-2 rounded" style="width: fit-content"> 
+            {% trans "Pay By Credit Card" %} 
+        </h4>
+        <div class="row">
+          <div id="pm-stripe" class="col-md-12 mx-auto">
+            <div class="card" role="button" onclick="createStripeSession()">
+              <div class="card-body text-center fw-bold d-flex justify-content-center gap-3 fs-1">
+                <p>{% trans "Credit Card" %}</p>
+                <i class="bi bi-credit-card"></i>   
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div id="payment-form-container">
+              <div id="stripe-card" class="card my-3 p-3" style="display: none">
+                <form id="payment-form">
+                  <div id="payment-element">
+
+                  </div>
+                  <button id="stripe-submit" class="btn btn-primary mt-3">
+                    {% trans "Pay Now" %}
+                  </button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock content %}

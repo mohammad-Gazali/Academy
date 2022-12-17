@@ -3,6 +3,8 @@ from django.contrib.sessions.models import Session
 from django.conf.global_settings import AUTH_USER_MODEL
 from django.utils.translation import gettext as _
 from main import settings
+from checkout.models import Transaction
+
 
 
 class Course(models.Model):
@@ -40,7 +42,7 @@ class Lesson(models.Model):
         return self.title
 
 
-    class META:
+    class Meta:
         verbose_name = _('lesson')
         verbose_name_plural = _('lessons')
 
@@ -58,7 +60,7 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment ({self.id})" 
 
-    class META:
+    class Meta:
         verbose_name = _('comment')
         verbose_name_plural = _('comments')
 
@@ -67,8 +69,13 @@ class Cart(models.Model):
     items = models.JSONField(default=list)
     session = models.ForeignKey(Session, on_delete=models.CASCADE, verbose_name=_("session"))
 
-    class META:
+    class Meta:
         verbose_name = _('cart')
         verbose_name_plural = _('carts')
 
 
+class TransactionCourse(models.Model):
+    transaction = models.ForeignKey(Transaction, on_delete=models.PROTECT, verbose_name=_("transaction"))
+    course = models.ForeignKey(Course, on_delete=models.PROTECT, verbose_name=_("course"))
+    price = models.FloatField(verbose_name=_("price"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("created at"))

@@ -9,12 +9,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--ju7y4ddcea!omz70ib+9st2@s+=to*m!uz)si6r2x-&tdx%@n'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure--ju7y4ddcea!omz70ib+9st2@s+=to*m!uz)si6r2x-&tdx%@n')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = str(os.environ.get('DEBUG')) == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost'
+]
+
+if not DEBUG:
+    ALLOWED_HOSTS += [os.environ.get('ALLOWED_HOST')]
 
 
 # Application definition
@@ -143,3 +149,11 @@ CKEDITOR_CONFIGS = {
         'width': '100%',
     },
 }
+
+
+
+#| SECRETS
+STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_ENDPOINT_SECRET = os.environ.get('STRIPE_ENDPOINT_SECRET')
+CURRENCY = os.environ.get('CURRENCY')
