@@ -1,6 +1,6 @@
-async function updateCart(e) {
+async function updateCart(e, edition) {
 	const response = await axios.get(
-		`${location.href}cart/update/${e.dataset.cid}`
+		`${ edition === undefined ? location.href : edition }cart/update/${e.dataset.cid}`
 	);
 
 	if (typeof response.data !== "string") {

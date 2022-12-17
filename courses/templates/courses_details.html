@@ -26,7 +26,7 @@
                     {{ course.price|currency }}
                 </span>
             </div>
-            <button class="col-md-5 btn btn-dark bg-gradient fs-5">
+            <button onclick="updateCart(this, location.href.split('/').slice(0, 3).join('/') + '/')" data-cid="{{ course.id }}"  class="col-md-5 btn btn-dark bg-gradient fs-5">
                 {% trans "Add To Cart" %} <i class="bi bi-bag-plus"></i>
             </button>
         </div>

@@ -2,7 +2,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect
 from django.conf import settings
-from courses.models import Course
+from courses.models import Course, Cart
 from .models import Transaction, TransactionStatus
 import stripe
 
@@ -31,8 +31,15 @@ def stripe_webhook(request: HttpRequest):
         payment_intent = event.data.object
         print("payment_intent.succeeded")
         transaction_id = payment_intent.metadata.transaction
-        make_order(transaction_id, str(request.user.id))
+        user_id = payment_intent.metadata.user_id
+        make_order(transaction_id, user_id)
 
+        transaction = Transaction.objects.get(pk=int(transaction_id))
+
+        session_id = transaction.session
+
+        cart = Cart.objects.filter(session_id=session_id).last()
+        cart.delete()
     else:
       print('Unhandled event type {}'.format(event['type']))
 
@@ -41,7 +48,7 @@ def stripe_webhook(request: HttpRequest):
 
 
 def make_order(tid, uid):
-    transaction = Transaction.objects.get(pk=tid)
+    transaction = Transaction.objects.get(pk=int(tid))
 
     transaction.status = TransactionStatus.Completed
 
@@ -51,9 +58,10 @@ def make_order(tid, uid):
 
     # make the course valid for the customer
     for course in courses:
-        course.users = course.user | { uid: "valid" }
+        course.users = course.users | { uid: "valid" }
         course.save()
         course.transactioncourse_set.create(
+            transaction_id=tid,
             course_id=course.id,
             price=course.price
         )

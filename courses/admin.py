@@ -4,7 +4,7 @@ from . import models
 
 @admin.register(models.Course)
 class CourseAdmin(admin.ModelAdmin):
-    pass
+    fields = ['name', 'short_description', 'description', 'thumbnail_image', 'price']
 
 
 @admin.register(models.Lesson)

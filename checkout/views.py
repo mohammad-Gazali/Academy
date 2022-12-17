@@ -30,8 +30,9 @@ def stripe_transaction(request: HttpRequest):
         amount=transaction.amount * 100,
         currency=settings.CURRENCY,
         payment_method_types=['card'],
-        meta_data={
-            'transaction': transaction.id
+        metadata={
+            'transaction': transaction.id,
+            'user_id': request.user.id
         }
     )
 
