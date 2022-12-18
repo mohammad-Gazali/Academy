@@ -33,6 +33,7 @@ def personal_course_display(request: HttpRequest, cid):
         return HttpResponseForbidden("<h1>403</h1><h1>Forbidden</h1>")
 
 
+@login_required
 def personal_course_video(request: HttpRequest, lid):
     valid_courses = get_valid_courses(request.user)
     lesson = Lesson.objects.get(pk=lid)
@@ -87,6 +88,27 @@ def cart_update(request: HttpRequest, cid):
 
         cart_model = Cart.objects.filter(session_id=session_id).last()
 
+        course = Course.objects.get(pk=cid)
+
+        if str(request.user.id) in course.users:
+            if cart_model is None:
+                return JsonResponse({
+                "title": _("Course Has Repeated"),
+                "message": _("You Have This Course, Check Your Personal Courses"),
+                "button": _("Continue"),
+                "items_count": 0,
+                "icon": "info"
+                })
+            else:
+                return JsonResponse({
+                "title": _("Course Has Repeated"),
+                "message": _("You Have This Course, Check Your Personal Courses"),
+                "items_count": len(cart_model.items),
+                "button": _("Continue"),
+                "icon": "info"
+        })
+
+
         if cart_model is None:
             cart_model = Cart.objects.create(
                 session_id=session_id,
@@ -95,6 +117,7 @@ def cart_update(request: HttpRequest, cid):
         elif cid not in cart_model.items:
             cart_model.items.append(cid)
             cart_model.save()
+
 
         return JsonResponse({
             "title": _("Success"),

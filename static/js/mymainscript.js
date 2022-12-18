@@ -7,7 +7,7 @@ async function updateCart(e, edition) {
 		Swal.fire({
 			title: response.data.title,
 			text: response.data.message,
-			icon: "success",
+			icon: response.data.icon || "success",
 			confirmButtonText: response.data.button,
 		});
 	}
@@ -137,3 +137,16 @@ async function _stripeInit() {
 }
 
 _stripeInit();
+
+//| Language Script
+let lanFilters = document.querySelectorAll('.language-input')
+let html = document.getElementsByTagName('html')[0]
+
+if (lanFilters[0].checked) {
+	html.setAttribute("lang", 'ar')
+    html.setAttribute("dir", 'rtl')
+    html.dir = 'rtl'
+} else {
+	html.lang = 'en'
+    html.removeAttribute("dir")
+}

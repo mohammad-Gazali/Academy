@@ -15,14 +15,14 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+			<ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-links-list">
 				<li class="nav-item">
 					<a class="nav-link active" aria-current="page" href="{% url 'home' %}"
 						>{% trans "Home" %}</a
 					>
 				</li>
 				<li class="nav-item dropdown">
-					<a
+					{% comment %} <a
 						class="nav-link dropdown-toggle"
 						href="#"
 						role="button"
@@ -34,7 +34,29 @@
 					<ul class="dropdown-menu dropdown-menu-dark">
 						<li><a class="dropdown-item" href="#">العربية</a></li>
 						<li><a class="dropdown-item" href="#">English</a></li>
-					</ul>
+					</ul> {% endcomment %}
+					<form id="language-form" action="{% url 'set_language' %}" method="POST"> 
+                        {% csrf_token %} 
+                        {% get_current_language as LANGUAGE_CODE %}  
+                        {% get_available_languages as LANGUAGES %}  
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        <div class="nav-item dropdown">
+                            <button class="nav-link dropdown-toggle" type="button" style="background: transparent; border: transparent;" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                {% trans "Language" %}
+                            </button>
+                            <ul class="dropdown-menu p-0" style="border: none;" aria-labelledby="dropdownMenuButton1">
+                                {% for language in languages %}
+                                    <li>
+                                        <input type="radio" class="btn-check dropdown-item language-input" name="language" value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} checked {% endif %} id="{{ language.name_local }}" autocomplete="off" onclick="document.getElementById('language-form').submit();">
+                                        <label class="btn btn-outline-primary w-100" for="{{ language.name_local }}" style="border: none;">{{ language.name_local }}</label>
+                                    </li>
+                                    {% if language.name_local == "العربيّة" %}
+                                        <li><hr class="dropdown-divider m-0"></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </form>
 				</li>
 				<li class="nav-item dropdown">
 					<a

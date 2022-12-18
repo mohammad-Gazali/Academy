@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-17 20:19+0300\n"
+"POT-Creation-Date: 2022-12-18 11:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
 #: .\courses\apps.py:8
 msgid "Courses"
 msgstr "الدورات"
@@ -299,14 +300,22 @@ msgstr "تسجيل الدخول"
 msgid "Register"
 msgstr "إنشاء حساب"
 
-#: .\courses\views.py:104
+#: .\courses\views.py:95
+msgid "Course Has Repeated"
+msgstr "تكرار الدورة"
+
+#: .\courses\views.py:96
+msgid "You Have This Course, Check Your Personal Courses"
+msgstr "أنت تمتلك هذه الدورة بالفعل, تفقد دوراتك الشخصية"
+
+#: .\courses\views.py:98 .\courses\views.py:117
+msgid "Continue"
+msgstr "تم"
+
+#: .\courses\views.py:114
 msgid "Success"
 msgstr "نجاح"
 
-#: .\courses\views.py:105
+#: .\courses\views.py:115
 msgid "The Course Has Been Added Successfully to the Cart"
 msgstr "تمت إضافة الدورة إلى سلة المشتريات بنجاح"
-
-#: .\courses\views.py:107
-msgid "Continue"
-msgstr "تم"
