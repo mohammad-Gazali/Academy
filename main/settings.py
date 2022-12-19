@@ -157,7 +157,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SITE_URL = 'http://127.0.0.1:8000'
+SITE_URL = os.environ.get('SITE_URL')
 
 LOGIN_REDIRECT_URL = '/'
 
