@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-20 20:31+0300\n"
+"POT-Creation-Date: 2022-12-20 21:19+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,6 @@ msgid "short description"
 msgstr "وصف قصير"
 
 #: .\courses\models.py:14
-#| msgid "short description"
 msgid "short description arabic"
 msgstr "وصف قصير عربي"
 
@@ -49,7 +48,6 @@ msgid "description"
 msgstr "وصف"
 
 #: .\courses\models.py:16
-#| msgid "description"
 msgid "description arabic"
 msgstr "وصف عربي"
 

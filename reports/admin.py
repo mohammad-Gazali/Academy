@@ -34,7 +34,7 @@ class OrderReportAdmin(admin.ModelAdmin):
             .annotate(year=ExtractYear("created_at"))
             .annotate(month=ExtractMonth("created_at"))
             .values("year", "month")  
-            .annotate(sum=Sum("amount"))[-30:]  
+            .annotate(sum=Sum("amount"))[:30]  
         )
 
         weekly_stats = (
@@ -42,7 +42,7 @@ class OrderReportAdmin(admin.ModelAdmin):
             .annotate(year=ExtractYear("created_at"))
             .annotate(week=ExtractWeek("created_at"))
             .values("year", "week")
-            .annotate(sum=Sum("amount"))[-30:]
+            .annotate(sum=Sum("amount"))[:30]
         )
 
 
