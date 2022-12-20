@@ -1,4 +1,4 @@
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django import forms
 from ckeditor.widgets import CKEditorWidget
 from .models import Article
@@ -16,10 +16,10 @@ class ArticleForm(forms.ModelForm):
         fields = ['title', 'category', 'body', 'is_arabic']
         
         labels = {
-            'title': _("Title"),
-            'category': _("Category"),
-            'body': _("Body"),
-            'is_arabic': _("Is The Article Written in Arabic ?"),
+            'title': _("Title "),
+            'category': _("Category "),
+            'body': _("Body "),
+            'is_arabic': _("Is The Article Written in Arabic ? "),
         }
         
         widgets = {

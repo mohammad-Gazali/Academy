@@ -79,34 +79,44 @@ def delete_comment(request: HttpRequest, cid):
         return HttpResponseForbidden("<h1>403</h1><h1>Forbidden</h1>")
 
 
-@login_required
+
 def cart_update(request: HttpRequest, cid):
     if request.method == "GET":
-        if not request.session.session_key:
-            request.session.create()
-        session_id = request.session.session_key
+        if request.user.is_authenticated:
+            if not request.session.session_key:
+                request.session.create()
+            session_id = request.session.session_key
 
-        cart_model = Cart.objects.filter(session_id=session_id).last()
+            cart_model = Cart.objects.filter(session_id=session_id).last()
 
-        course = Course.objects.get(pk=cid)
+            course = Course.objects.get(pk=cid)
 
-        if str(request.user.id) in course.users:
-            if cart_model is None:
-                return JsonResponse({
-                "title": _("Course Has Repeated"),
-                "message": _("You Have This Course, Check Your Personal Courses"),
-                "button": _("Continue"),
+            if str(request.user.id) in course.users:
+                if cart_model is None:
+                    return JsonResponse({
+                    "title": _("Course Has Repeated"),
+                    "message": _("You Have This Course, Check Your Personal Courses"),
+                    "button": _("Continue"),
+                    "items_count": 0,
+                    "icon": "info"
+                    })
+                else:
+                    return JsonResponse({
+                    "title": _("Course Has Repeated"),
+                    "message": _("You Have This Course, Check Your Personal Courses"),
+                    "items_count": len(cart_model.items),
+                    "button": _("Continue"),
+                    "icon": "info"
+            })
+
+        else:
+            return JsonResponse({
+                "title": _("Login Is Required"),
+                "message": _("You Should Either Login or Create a New Account"),
                 "items_count": 0,
-                "icon": "info"
-                })
-            else:
-                return JsonResponse({
-                "title": _("Course Has Repeated"),
-                "message": _("You Have This Course, Check Your Personal Courses"),
-                "items_count": len(cart_model.items),
                 "button": _("Continue"),
                 "icon": "info"
-        })
+            })
 
 
         if cart_model is None:

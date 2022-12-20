@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.sessions.models import Session
 from django.conf.global_settings import AUTH_USER_MODEL
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from main import settings
 from checkout.models import Transaction
 
@@ -9,8 +9,11 @@ from checkout.models import Transaction
 
 class Course(models.Model):
     name = models.CharField(max_length=255, verbose_name=_('name'))
+    name_arabic = models.CharField(max_length=255, verbose_name=_('name arabic'), null=True, blank=True)
     short_description = models.CharField(max_length=255, verbose_name=_('short description'))
+    short_description_arabic = models.CharField(max_length=255, verbose_name=_('short description arabic'), null=True, blank=True)
     description = models.TextField(verbose_name=_('description'))
+    description_arabic = models.TextField(verbose_name=_('description arabic'), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created at'))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_('updated at'))
     thumbnail_image = models.ImageField(verbose_name=_('thumbnail image'))

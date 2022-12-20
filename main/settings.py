@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'blog',
     'accounts',
     'checkout',
+    'reports',
     'ckeditor',
 ]
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 11:03+0300\n"
+"POT-Creation-Date: 2022-12-20 20:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,95 +32,109 @@ msgid "name"
 msgstr "الاسم"
 
 #: .\courses\models.py:12
+msgid "name arabic"
+msgstr "الاسم العربي"
+
+#: .\courses\models.py:13
 msgid "short description"
 msgstr "وصف قصير"
 
-#: .\courses\models.py:13
+#: .\courses\models.py:14
+#| msgid "short description"
+msgid "short description arabic"
+msgstr "وصف قصير عربي"
+
+#: .\courses\models.py:15
 msgid "description"
 msgstr "وصف"
 
-#: .\courses\models.py:14 .\courses\models.py:31 .\courses\models.py:52
-#: .\courses\models.py:81
+#: .\courses\models.py:16
+#| msgid "description"
+msgid "description arabic"
+msgstr "وصف عربي"
+
+#: .\courses\models.py:17 .\courses\models.py:34 .\courses\models.py:55
+#: .\courses\models.py:84
 msgid "created at"
 msgstr "تاريخ الإنشاء"
 
-#: .\courses\models.py:15 .\courses\models.py:32 .\courses\models.py:53
+#: .\courses\models.py:18 .\courses\models.py:35 .\courses\models.py:56
 msgid "updated at"
 msgstr "تاريخ آخر تعديل"
 
-#: .\courses\models.py:16
+#: .\courses\models.py:19
 msgid "thumbnail image"
 msgstr "صورة مصغرة"
 
-#: .\courses\models.py:17 .\courses\models.py:80
+#: .\courses\models.py:20 .\courses\models.py:83
 msgid "price"
 msgstr "السعر"
 
-#: .\courses\models.py:25 .\courses\models.py:34 .\courses\models.py:79
+#: .\courses\models.py:28 .\courses\models.py:37 .\courses\models.py:82
 msgid "course"
 msgstr "دورة"
 
-#: .\courses\models.py:26
+#: .\courses\models.py:29
 msgid "courses"
 msgstr "دورات"
 
-#: .\courses\models.py:30
+#: .\courses\models.py:33
 msgid "title"
 msgstr "العنوان"
 
-#: .\courses\models.py:33
+#: .\courses\models.py:36
 msgid "video"
 msgstr "مقطع الفيديو"
 
-#: .\courses\models.py:46 .\courses\models.py:54
+#: .\courses\models.py:49 .\courses\models.py:57
 msgid "lesson"
 msgstr "درس"
 
-#: .\courses\models.py:47
+#: .\courses\models.py:50
 msgid "lessons"
 msgstr "دروس"
 
-#: .\courses\models.py:51
+#: .\courses\models.py:54
 msgid "content"
 msgstr "المحتوى"
 
-#: .\courses\models.py:55
+#: .\courses\models.py:58
 msgid "related comment id"
 msgstr "معرف التعليق المرتبط"
 
-#: .\courses\models.py:56
+#: .\courses\models.py:59
 msgid "related comment"
 msgstr "التعلق المرتبط"
 
-#: .\courses\models.py:57
+#: .\courses\models.py:60
 msgid "user"
 msgstr "المستخدم"
 
-#: .\courses\models.py:64
+#: .\courses\models.py:67
 msgid "comment"
 msgstr "تعليق"
 
-#: .\courses\models.py:65
+#: .\courses\models.py:68
 msgid "comments"
 msgstr "تعليقات"
 
-#: .\courses\models.py:70
+#: .\courses\models.py:73
 msgid "session"
 msgstr "session"
 
-#: .\courses\models.py:73
+#: .\courses\models.py:76
 msgid "cart"
 msgstr "سلة المشتريات"
 
-#: .\courses\models.py:74
+#: .\courses\models.py:77
 msgid "carts"
 msgstr "سلات المشتريات"
 
-#: .\courses\models.py:78
+#: .\courses\models.py:81
 msgid "transaction"
 msgstr "الصفقة"
 
-#: .\courses\templates\cart.html:5 .\courses\templates\partials\navbar.html:79
+#: .\courses\templates\cart.html:5 .\courses\templates\partials\navbar.html:88
 msgid "Cart"
 msgstr "سلة المشتريات"
 
@@ -128,7 +142,7 @@ msgstr "سلة المشتريات"
 msgid "Delete All Items"
 msgstr "حذف كل العناصر"
 
-#: .\courses\templates\cart.html:30 .\courses\templates\courses_details.html:23
+#: .\courses\templates\cart.html:30 .\courses\templates\courses_details.html:35
 msgid "Price"
 msgstr "السعر"
 
@@ -197,25 +211,25 @@ msgstr "عملية الدفع خاصتك تمت بنجاح"
 msgid "Course Details"
 msgstr "تفاصيل الدورة"
 
-#: .\courses\templates\courses_details.html:30
-#: .\courses\templates\index.html:21
+#: .\courses\templates\courses_details.html:42
+#: .\courses\templates\index.html:26
 msgid "Add To Cart"
 msgstr "إضافة إلى سلة المشتريات"
 
 #: .\courses\templates\courses_personal.html:6
-#: .\courses\templates\partials\navbar.html:72
+#: .\courses\templates\partials\navbar.html:81
 msgid "My Courses"
 msgstr "دوراتي"
 
-#: .\courses\templates\courses_personal.html:20
+#: .\courses\templates\courses_personal.html:29
 msgid "Serve The Content"
 msgstr "تصفح المحتوى"
 
-#: .\courses\templates\courses_personal.html:26
+#: .\courses\templates\courses_personal.html:35
 msgid "There is no courses for display"
 msgstr "ليس هناك دورات لعرضها"
 
-#: .\courses\templates\courses_personal.html:29
+#: .\courses\templates\courses_personal.html:38
 msgid "Get Your Owns By Buying Some Awesome Courses"
 msgstr "احصل على بعضها بشراء الدورات المدهشة"
 
@@ -256,7 +270,7 @@ msgstr "إنشاء"
 msgid "Check Out Our Trend Courses"
 msgstr "شاهد دوراتنا العصرية"
 
-#: .\courses\templates\index.html:20
+#: .\courses\templates\index.html:25
 msgid "Details"
 msgstr "التفاصيل"
 
@@ -272,50 +286,59 @@ msgstr "الصفحة الرئيسية"
 msgid "Language"
 msgstr "اللغة"
 
-#: .\courses\templates\partials\navbar.html:47
+#: .\courses\templates\partials\navbar.html:56
 msgid "Blog"
 msgstr "المدونة"
 
-#: .\courses\templates\partials\navbar.html:52
+#: .\courses\templates\partials\navbar.html:61
 msgid "All Articles"
 msgstr "كل المقالات"
 
-#: .\courses\templates\partials\navbar.html:59
+#: .\courses\templates\partials\navbar.html:68
 msgid "My Articles"
 msgstr "مقالاتي"
 
-#: .\courses\templates\partials\navbar.html:64
+#: .\courses\templates\partials\navbar.html:73
 msgid "Create Article"
 msgstr "إنشاء مقالة"
 
-#: .\courses\templates\partials\navbar.html:75
+#: .\courses\templates\partials\navbar.html:84
 msgid "Logout"
 msgstr "تسجيل الخروج"
 
-#: .\courses\templates\partials\navbar.html:84
+#: .\courses\templates\partials\navbar.html:93
 msgid "Login"
 msgstr "تسجيل الدخول"
 
-#: .\courses\templates\partials\navbar.html:88
+#: .\courses\templates\partials\navbar.html:97
 msgid "Register"
 msgstr "إنشاء حساب"
 
-#: .\courses\views.py:95
+#: .\courses\views.py:97 .\courses\views.py:105
 msgid "Course Has Repeated"
 msgstr "تكرار الدورة"
 
-#: .\courses\views.py:96
+#: .\courses\views.py:98 .\courses\views.py:106
 msgid "You Have This Course, Check Your Personal Courses"
 msgstr "أنت تمتلك هذه الدورة بالفعل, تفقد دوراتك الشخصية"
 
-#: .\courses\views.py:98 .\courses\views.py:117
+#: .\courses\views.py:99 .\courses\views.py:108 .\courses\views.py:117
+#: .\courses\views.py:136
 msgid "Continue"
 msgstr "تم"
 
 #: .\courses\views.py:114
+msgid "Login Is Required"
+msgstr "تسجيل الدخول مطلوب"
+
+#: .\courses\views.py:115
+msgid "You Should Either Login or Create a New Account"
+msgstr "يجب عليك إما أن تسجل دخولك أو أن تنشئ حساباً جديداً"
+
+#: .\courses\views.py:133
 msgid "Success"
 msgstr "نجاح"
 
-#: .\courses\views.py:115
+#: .\courses\views.py:134
 msgid "The Course Has Been Added Successfully to the Cart"
 msgstr "تمت إضافة الدورة إلى سلة المشتريات بنجاح"

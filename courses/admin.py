@@ -4,7 +4,8 @@ from . import models
 
 @admin.register(models.Course)
 class CourseAdmin(admin.ModelAdmin):
-    fields = ['name', 'short_description', 'description', 'thumbnail_image', 'price']
+    fields = ['name', 'short_description', 'description', 'name_arabic', 'short_description_arabic', 'description_arabic', 'thumbnail_image', 'price']
+    list_display = ['name', 'name_arabic', 'created_at', 'updated_at', 'price']
 
 
 @admin.register(models.Lesson)
@@ -16,11 +17,7 @@ class LessonAdmin(admin.ModelAdmin):
 
 @admin.register(models.Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['id', 'lesson', 'created_at']
+    list_display = ['user', 'lesson', 'created_at']
     list_filter = ['lesson']
+    search_fields = ['user']
     ordering = ['lesson']
-
-
-@admin.register(models.Cart)
-class CartAdmin(admin.ModelAdmin):
-    pass

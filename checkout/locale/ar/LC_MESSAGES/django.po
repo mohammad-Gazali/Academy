@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-17 20:19+0300\n"
+"POT-Creation-Date: 2022-12-20 20:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
 #: .\checkout\apps.py:8
 msgid "Checkout"
 msgstr "الدفع"
@@ -66,13 +67,63 @@ msgstr "تاريخ الإنشاء"
 msgid "updated at"
 msgstr "تاريخ آخر تعديل"
 
-#: .\checkout\models.py:30
+#: .\checkout\models.py:22
+#| msgid "customer"
+msgid "customer name"
+msgstr "الزبون"
+
+#: .\checkout\models.py:28
+#| msgid "customer"
+msgid "customer email"
+msgstr "بريد الزبون"
+
+#: .\checkout\models.py:31
+#, fuzzy
+#| msgid "transaction"
+msgid "Transaction"
+msgstr "صفقة"
+
+#: .\checkout\models.py:35
 msgid "transaction"
 msgstr "صفقة"
 
-#: .\checkout\models.py:31
+#: .\checkout\models.py:36
 msgid "transactions"
 msgstr "صفقات"
+
+#: .\checkout\templates\admin\checkout\transaction\change_form.html:8
+#, fuzzy
+#| msgid "customer"
+msgid "Customer"
+msgstr "الزبون"
+
+#: .\checkout\templates\admin\checkout\transaction\change_form.html:16
+#, fuzzy
+#| msgid "email"
+msgid "Email"
+msgstr "البريد اللإلكتروني"
+
+#: .\checkout\templates\admin\checkout\transaction\change_form.html:24
+#, fuzzy
+#| msgid "amount"
+msgid "Amount"
+msgstr "الثمن"
+
+#: .\checkout\templates\admin\checkout\transaction\change_form.html:32
+msgid "Date"
+msgstr "التاريخ"
+
+#: .\checkout\templates\admin\checkout\transaction\change_form.html:37
+msgid "Products"
+msgstr "المنتجات"
+
+#: .\checkout\templates\admin\checkout\transaction\change_form.html:41
+msgid "Name"
+msgstr "الاسم"
+
+#: .\checkout\templates\admin\checkout\transaction\change_form.html:42
+msgid "Price"
+msgstr "السعر"
 
 #: .\checkout\views.py:15
 msgid "en"

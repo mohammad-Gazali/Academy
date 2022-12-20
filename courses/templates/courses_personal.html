@@ -10,12 +10,21 @@
     <div class="container my-5 d-flex flex-column gap-5">
         {% for course in courses %}
             <div class="card p-3">
-                <div class="card-title fw-bold">
-                    {{ course.name }}
-                </div>
-                <p class="card-text">
-                    {{ course.short_description }}
-                </p>
+                {% if LANGUAGE_CODE == "en-us" %}
+                    <div class="card-title fw-bold">
+                        {{ course.name }}
+                    </div>
+                    <p class="card-text">
+                        {{ course.short_description }}
+                    </p>
+                {% else %}
+                    <div class="card-title fw-bold">
+                        {{ course.name_arabic }}
+                    </div>
+                    <p class="card-text">
+                        {{ course.short_description_arabic }}
+                    </p>
+                {% endif %}
                 <a class="btn btn-primary bg-gradient" href="{% url 'course_personal_display' course.id %}" style="width: fit-content">
                     {% trans "Serve The Content" %}
                 </a>

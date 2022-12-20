@@ -10,6 +10,13 @@ async function updateCart(e, edition) {
 			icon: response.data.icon || "success",
 			confirmButtonText: response.data.button,
 		});
+	} else {
+		Swal.fire({
+			title: response.data.title,
+			text: response.data.message,
+			icon: response.data.icon,
+			confirmButtonText: response.data.button,
+		});
 	}
 
 	document.getElementById("cart-courses-number").innerHTML =

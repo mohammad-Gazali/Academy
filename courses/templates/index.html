@@ -15,8 +15,13 @@
             <div class="card text-white shadow" style="width: 18rem; border: none; background: var(--cards-color)">
                 <img src="{{ course.thumbnail_image.url }}" class="card-img-top" alt="{{ course.name }}">
                 <div class="card-body h-100 d-flex flex-column">
-                    <h5 class="card-title">{{ course.name }}</h5>
-                    <p class="card-text">{{ course.short_description }}.</p>
+                    {% if LANGUAGE_CODE == "en-us" %}
+                        <h5 class="card-title">{{ course.name }}</h5>
+                        <p class="card-text">{{ course.short_description }}.</p>
+                    {% else %}
+                        <h5 class="card-title">{{ course.name_arabic }}</h5>
+                        <p class="card-text">{{ course.short_description_arabic }}.</p>
+                    {% endif %}
                     <a href="{% url 'course_details' course.id %}" class="btn btn-primary bg-gradient mt-auto mb-2">{% trans "Details" %} <i class="bi bi-info-circle"></i></a>
                     <button onclick="updateCart(this)" data-cid="{{ course.id }}" class="btn btn-dark bg-gradient">{% trans "Add To Cart" %} <i class="bi bi-bag-plus"></i></button>
                 </div>

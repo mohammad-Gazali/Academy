@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-17 20:19+0300\n"
+"POT-Creation-Date: 2022-12-20 20:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,25 +18,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
 #: .\blog\apps.py:9 .\blog\templates\main_blog.html:5
 msgid "Blog"
 msgstr "مدونة"
 
 #: .\blog\forms.py:19
-msgid "Title"
+msgid "Title "
 msgstr "العنوان"
 
-#: .\blog\forms.py:20 .\blog\templates\main_blog.html:26
-#: .\blog\templates\personal_blog.html:26
-msgid "Category"
+#: .\blog\forms.py:20
+msgid "Category "
 msgstr "الفئة"
 
 #: .\blog\forms.py:21
-msgid "Body"
+msgid "Body "
 msgstr "متن المقال"
 
 #: .\blog\forms.py:22
-msgid "Is The Article Written in Arabic ?"
+msgid "Is The Article Written in Arabic ? "
 msgstr "هل كتبت المقالة باللغة العربية ؟"
 
 #: .\blog\models.py:8
@@ -116,6 +116,10 @@ msgstr "تاريخ الإنشاء"
 #: .\blog\templates\main_blog.html:23
 msgid "Author"
 msgstr "المؤلف"
+
+#: .\blog\templates\main_blog.html:26 .\blog\templates\personal_blog.html:26
+msgid "Category"
+msgstr "الفئة"
 
 #: .\blog\templates\main_blog.html:35 .\blog\templates\personal_blog.html:35
 msgid "View"
